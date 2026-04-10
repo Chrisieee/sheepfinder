@@ -1,3 +1,4 @@
+import "./i18n"
 import "./global.css"
 import {NavigationContainer} from "@react-navigation/native";
 import Tabs from "./app/components/tab-nav";

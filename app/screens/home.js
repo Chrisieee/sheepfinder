@@ -1,14 +1,16 @@
-import {View, Text, FlatList, Pressable, ActivityIndicator, SafeAreaView} from "react-native";
+import {Text, FlatList, Pressable, ActivityIndicator, SafeAreaView} from "react-native";
 import {SafeAreaProvider} from "react-native-safe-area-context";
-import {useEffect, useState} from "react";
+import {useEffect} from "react";
 import {useApi} from "../context/api-context";
 import {useSheep} from "../context/sheep-context";
 import {useNavigation} from "@react-navigation/native";
+import {useTranslation} from "react-i18next";
 
 function Home() {
     const {getSheeps} = useApi()
     const {sheeps} = useSheep()
     const navigation = useNavigation();
+    const {t} = useTranslation()
 
     useEffect(() => {
         getSheeps()
@@ -16,8 +18,9 @@ function Home() {
 
     return (
         <SafeAreaProvider>
-            <SafeAreaView className="items-center">
-                <Text className="text-xl font-bold">Welkom bij sheepfinder!</Text>
+            <SafeAreaView className="items-center pt-5 flex-1">
+                <Text className="text-2xl font-bold">{t("home.welcome")}!</Text>
+                <Text className="text-xl">{t("home.find")}:</Text>
                 {sheeps ?
                     <FlatList className="w-[90%]" data={sheeps.items} keyExtractor={(item) => item.id}
                               renderItem={({item}) =>

@@ -1,16 +1,15 @@
-import {View, Text, Pressable} from "react-native";
-import MapView, {Marker} from "react-native-maps";
+import {View} from "react-native";
+import MapView from "react-native-maps";
 import {useSheep} from "../context/sheep-context";
 import {useLocation} from "../context/location-context";
 import {useCallback, useEffect, useState} from "react";
-import {useFocusEffect, useNavigation} from "@react-navigation/native";
+import {useFocusEffect} from "@react-navigation/native";
 import MapMarker from "../components/marker";
 
 function Map({route}) {
     const {sheeps} = useSheep()
     const {userLocation, startLocationUpdates} = useLocation()
     const [startLocation, setStartLocation] = useState(null)
-    const navigation = useNavigation();
 
     useFocusEffect(
         useCallback(() => {
@@ -25,10 +24,6 @@ function Map({route}) {
             setStartLocation(userLocation.coords)
         }
     }, [route.params?.location, userLocation]);
-
-    useEffect(() => {
-        console.log("params updated:", route.params);
-    }, [route.params])
 
     return (
         <View style={{flex: 1}}>
