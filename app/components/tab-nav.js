@@ -6,12 +6,13 @@ import Home from "../screens/home";
 import Map from "../screens/map";
 import Settings from "../screens/settings";
 import {Entypo, Feather} from "@expo/vector-icons";
+import MapStack from "./map-stack-nav";
 
 function Tabs() {
     const Tab = createBottomTabNavigator();
 
     return (
-        <Tab.Navigator id="1">
+        <Tab.Navigator screenOptions={{headerShown: false}} id="1">
             <Tab.Screen
                 name="Home"
                 component={Home}
@@ -19,12 +20,13 @@ function Tabs() {
                     headerTitle: () => <Title title={"Home"}/>,
                     headerTitleAlign: 'center',
                     tabBarShowLabel: false,
-                    tabBarIcon: ({focused}) => <AntDesign name="home" size={25} color={focused ? "blue" : "black"}/>
+                    tabBarIcon: ({focused}) => <AntDesign name="home" size={25} color={focused ? "blue" : "black"}/>,
+                    headerShown: true
                 }}
             />
             <Tab.Screen
-                name="Map"
-                component={Map}
+                name="MapStack"
+                component={MapStack}
                 options={{
                     headerTitle: () => <Title title={"Map"}/>,
                     headerTitleAlign: 'center',
@@ -39,7 +41,8 @@ function Tabs() {
                     headerTitle: () => <Title title={"Settings"}/>,
                     headerTitleAlign: 'center',
                     tabBarShowLabel: false,
-                    tabBarIcon: ({focused}) => <Feather name="settings" size={24} color={focused ? "blue" : "black"}/>
+                    tabBarIcon: ({focused}) => <Feather name="settings" size={24} color={focused ? "blue" : "black"}/>,
+                    headerShown: true
                 }}
             />
         </Tab.Navigator>

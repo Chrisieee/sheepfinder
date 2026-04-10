@@ -4,17 +4,20 @@ import Tabs from "./app/components/tab-nav";
 import {ApiProvider} from "./app/context/api-context";
 import {SheepProvider} from "./app/context/sheep-context";
 import {LocationProvider} from "./app/context/location-context";
+import {SettingsProvider} from "./app/context/settings-context";
 
 export default function App() {
     return (
-        <LocationProvider>
-            <SheepProvider>
-                <ApiProvider>
-                    <NavigationContainer>
-                        <Tabs/>
-                    </NavigationContainer>
-                </ApiProvider>
-            </SheepProvider>
-        </LocationProvider>
+        <SettingsProvider>
+            <LocationProvider>
+                <SheepProvider>
+                    <ApiProvider>
+                        <NavigationContainer>
+                            <Tabs/>
+                        </NavigationContainer>
+                    </ApiProvider>
+                </SheepProvider>
+            </LocationProvider>
+        </SettingsProvider>
     );
 }

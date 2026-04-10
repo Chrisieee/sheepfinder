@@ -1,25 +1,34 @@
-import {View, Text} from "react-native";
+import {View, Text, Pressable} from "react-native";
 import MapView, {Marker} from "react-native-maps";
 import {useSheep} from "../context/sheep-context";
 import {useLocation} from "../context/location-context";
 import {useCallback, useEffect, useState} from "react";
-import {useFocusEffect} from "@react-navigation/native";
+import {useFocusEffect, useNavigation} from "@react-navigation/native";
+import MapMarker from "../components/marker";
 
 function Map({route}) {
     const {sheeps} = useSheep()
     const {userLocation, startLocationUpdates} = useLocation()
     const [startLocation, setStartLocation] = useState(null)
+    const navigation = useNavigation();
 
     useFocusEffect(
         useCallback(() => {
             startLocationUpdates()
-            if (route.params) {
-                setStartLocation(route.params)
-            } else {
-                setStartLocation(userLocation.coords)
-            }
         }, [])
     );
+
+    useEffect(() => {
+        if (route.params?.location) {
+            setStartLocation(route.params?.location)
+        } else if (userLocation) {
+            setStartLocation(userLocation.coords)
+        }
+    }, [route.params?.location, userLocation]);
+
+    useEffect(() => {
+        console.log("params updated:", route.params);
+    }, [route.params])
 
     return (
         <View style={{flex: 1}}>
@@ -27,11 +36,10 @@ function Map({route}) {
                      region={{
                          latitude: startLocation?.latitude ?? 51.80662957952351,
                          longitude: startLocation?.longitude ?? 4.66896958362819,
-                         latitudeDelta: 0.0010,
-                         longitudeDelta: 0.0010,
+                         latitudeDelta: route?.params?.location ? 0.0010 : 0.040,
+                         longitudeDelta: route?.params?.location ? 0.0010 : 0.040,
                      }} showsUserLocation={true}>
-                {sheeps.items !== [] ? sheeps.items.map((sheep) => <Marker
-                    coordinate={sheep.coords} key={sheep.id} pinColor={sheep.color}/>) : null}
+                {sheeps.items !== [] ? sheeps.items.map((sheep) => <MapMarker sheep={sheep} key={sheep.id}/>) : null}
             </MapView>
         </View>
     )

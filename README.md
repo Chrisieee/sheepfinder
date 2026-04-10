@@ -4,21 +4,22 @@ Deze app is gemaakt in React Native.
 
 ## Done:
 
-- ?
+- JSON maken
+- Map
+- Lijst van schapen
 
 ## To do:
 
-- JSON maken
+- Details weergaven
 - AsyncStorage voor likes/finds/miss notes
 - Dark mode
-- Map
-- Lijst van schapen
 - Styling
 
 ### Wil ik:
 
 - Beveiliging
 - Edit en delete (notes) + share
+- Foto's opslaan
 - Onderbreken internet
 - Meertaligheid
 
