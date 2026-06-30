@@ -23,7 +23,7 @@ function Map({route}) {
         } else if (userLocation) {
             setStartLocation(userLocation.coords)
         }
-    }, [route.params?.location, userLocation]);
+    }, [route.params, userLocation]);
 
     return (
         <View style={{flex: 1}}>

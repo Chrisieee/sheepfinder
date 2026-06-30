@@ -2,5 +2,19 @@
   "home": {
     "welcome": "Welkom bij Sheepfinder",
     "find": "Klik op een schaap om te zoeken"
+  },
+  "details": {
+    "kind": "Soort schaap",
+    "color": "Kleur:",
+    "found": "Gevonden?"
+  },
+  "settings": {
+    "title": "Instellingen",
+    "darkmode": "Donkere modus",
+    "language": {
+      "title": "Taal",
+      "dutch": "Nederlands",
+      "english": "Engels"
+    }
   }
 }

@@ -1,6 +1,20 @@
 {
   "home": {
-    "welcome": "",
-    "find": ""
+    "welcome": "Welcome to Sheepfinder",
+    "find": "Click a sheep to find it"
+  },
+  "details": {
+    "kind": "Kind of sheep",
+    "color": "Color:",
+    "found": "Found?"
+  },
+  "settings": {
+    "title": "Settings",
+    "darkmode": "Darkmode",
+    "language": {
+      "title": "Language",
+      "dutch": "Dutch",
+      "english": "English"
+    }
   }
 }

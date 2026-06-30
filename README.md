@@ -7,10 +7,10 @@ Deze app is gemaakt in React Native.
 - JSON maken
 - Map
 - Lijst van schapen
+- Details weergaven
 
 ## To do:
 
-- Details weergaven
 - AsyncStorage voor likes/finds/miss notes
 - Dark mode
 - Styling

@@ -3,13 +3,14 @@ import AntDesign from "@expo/vector-icons/AntDesign";
 
 import Title from "./title";
 import Home from "../screens/home";
-import Map from "../screens/map";
 import Settings from "../screens/settings";
 import {Entypo, Feather} from "@expo/vector-icons";
 import MapStack from "./map-stack-nav";
+import {useTranslation} from "react-i18next";
 
 function Tabs() {
     const Tab = createBottomTabNavigator();
+    const {t} = useTranslation()
 
     return (
         <Tab.Navigator screenOptions={{headerShown: false}} id="1">
@@ -38,7 +39,7 @@ function Tabs() {
                 name="Settings"
                 component={Settings}
                 options={{
-                    headerTitle: () => <Title title={"Settings"}/>,
+                    headerTitle: () => <Title title={t("settings.title")}/>,
                     headerTitleAlign: 'center',
                     tabBarShowLabel: false,
                     tabBarIcon: ({focused}) => <Feather name="settings" size={24} color={focused ? "blue" : "black"}/>,

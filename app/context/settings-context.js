@@ -1,11 +1,14 @@
 import {createContext, useContext, useEffect, useState} from "react"
 import AsyncStorage from "@react-native-async-storage/async-storage";
+import {useTranslation} from "react-i18next";
 
 const SettingsContext = createContext()
 
 export function SettingsProvider({children}) {
+    const {i18n} = useTranslation();
     const [settings, setSettings] = useState({
-        darkmode: false
+        darkmode: false,
+        language: "dutch"
     })
 
     const getSettings = async () => {
@@ -28,10 +31,10 @@ export function SettingsProvider({children}) {
         }
     }
 
-    const changeSettings = (value) => {
+    const changeSettings = (key, value) => {
         setSettings({
             ...settings,
-            darkmode: value
+            [key]: value
         })
     }
 
@@ -41,6 +44,7 @@ export function SettingsProvider({children}) {
 
     useEffect(() => {
         setSettingsToStorage()
+        i18n.changeLanguage(settings.language)
     }, [settings])
 
     return (
