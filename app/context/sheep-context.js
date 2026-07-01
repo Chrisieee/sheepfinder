@@ -2,6 +2,7 @@ import {createContext, useContext, useEffect, useState} from "react";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import {Share} from "react-native";
 import {useTranslation} from "react-i18next";
+import asyncStorage from "@react-native-async-storage/async-storage/src/AsyncStorage";
 
 const SheepContext = createContext()
 
@@ -65,7 +66,13 @@ export function SheepProvider({children}) {
     }
 
     const changeNotes = async (id, note) => {
-        setNotes([...notes, {id: id, note: note}])
+        setNotes(prevNotes =>
+            prevNotes.some(n => n.id === Number(id))
+                ? prevNotes.map(n =>
+                    n.id === id ? {...n, note} : n
+                )
+                : [...prevNotes, {id, note}]
+        );
     }
 
     const deleteNoteFromStorage = (id) => {
@@ -108,6 +115,7 @@ export function SheepProvider({children}) {
     };
 
     useEffect(() => {
+        // asyncStorage.clear()
         getFinds()
         getNotes()
         getPhotos()
@@ -119,6 +127,7 @@ export function SheepProvider({children}) {
 
     useEffect(() => {
         saveNotes()
+        console.log(notes)
     }, [notes])
 
     useEffect(() => {

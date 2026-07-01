@@ -7,6 +7,7 @@ import {Entypo, FontAwesome6, Fontisto, MaterialCommunityIcons, MaterialIcons} f
 import {useSettings} from "../context/settings-context";
 import {useAuth} from "../context/auth-context";
 import * as ImagePicker from "expo-image-picker";
+import AntDesign from "@expo/vector-icons/AntDesign";
 
 function Details({route}) {
     const {
@@ -36,6 +37,10 @@ function Details({route}) {
             [name]: value,
         })
     }
+
+    useEffect(() => {
+        console.log(formData)
+    }, [formData]);
 
     const sendForm = () => {
         changeNotes(sheep.id, formData.note)
@@ -141,15 +146,16 @@ function Details({route}) {
                                 </View>
 
                                 {/* foto stuff */}
-                                {photo ? (
-                                    <Image style={{width: "80%", height: 150, borderRadius: 10}}
-                                           source={{uri: photo.uri}}/>
-                                ) : (
-                                    <Pressable
-                                        className="bg-blue-400 dark:bg-blue-800 px-6 py-2 rounded-full flex items-center"
-                                        onPress={takePhoto}><Text
-                                        className="text-white">{t("details.photo")}</Text></Pressable>
-                                )}
+                                {found ?
+                                    photo ? (
+                                        <Image style={{width: "80%", height: 150, borderRadius: 10}}
+                                               source={{uri: photo.uri}}/>
+                                    ) : (
+                                        <Pressable
+                                            className="p-2 flex items-center"
+                                            onPress={takePhoto}><AntDesign name="camera" size={25}
+                                                                           color={settings.darkmode ? "white" : "black"}/></Pressable>
+                                    ) : null}
 
                                 {/* note stuff */}
                                 <View className="w-[90%] justify-center mt-4 border border-black p-2 rounded-xl">
@@ -172,10 +178,12 @@ function Details({route}) {
 
                                     {editNote ?
                                         <View className="items-center">
-                                            <TextInput className="w-full mt-2 border p-3 dark:text-white"
-                                                       onChangeText={(text) => formHandler({name: "note", value: text})}
-                                                       placeholder={t("details.placeholder")}
-                                                       value={formData?.note} multiline={true}/>
+                                            <TextInput
+                                                className="w-full mt-2 border p-3 dark:text-white bg-white dark:bg-gray-800"
+                                                onChangeText={(text) => formHandler({name: "note", value: text})}
+                                                placeholder={t("details.placeholder")}
+                                                placeholderTextColor={settings.darkmode ? "#C7C7C7" : "#303030"}
+                                                value={formData?.note} multiline={true}/>
                                             <Pressable onPress={() => sendForm()}
                                                        className="bg-blue-400 dark:bg-blue-800 px-6 py-2 mt-2 rounded-full">
                                                 <Text className="text-white text-center">{t("details.button")}</Text>
