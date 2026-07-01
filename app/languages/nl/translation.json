@@ -1,12 +1,22 @@
 {
   "home": {
     "welcome": "Welkom bij Sheepfinder",
-    "find": "Klik op een schaap om te zoeken"
+    "find": "Klik op een schaap om te zoeken",
+    "title": "Home"
+  },
+  "map": {
+    "title": "Map"
   },
   "details": {
+    "title": "Details",
     "kind": "Soort schaap",
     "color": "Kleur:",
-    "found": "Gevonden?"
+    "found": "Gevonden?",
+    "unfound": "Niet gevonden?",
+    "note": "Notitie",
+    "nonote": "Er is geen notitie",
+    "placeholder": "Voer een notitie in",
+    "button": "Opslaan"
   },
   "settings": {
     "title": "Instellingen",
@@ -14,7 +24,12 @@
     "language": {
       "title": "Taal",
       "dutch": "Nederlands",
-      "english": "Engels"
+      "english": "Engels",
+      "japanese": "Japans"
     }
+  },
+  "share": {
+    "text1": "Ik heb het schaap",
+    "text2": "gevonden!!"
   }
 }

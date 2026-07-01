@@ -18,14 +18,14 @@ function Home() {
 
     return (
         <SafeAreaProvider>
-            <SafeAreaView className="items-center pt-5 flex-1">
-                <Text className="text-2xl font-bold">{t("home.welcome")}!</Text>
-                <Text className="text-xl">{t("home.find")}:</Text>
+            <SafeAreaView className="items-center pt-5 flex-1 dark:bg-gray-600">
+                <Text className="text-2xl font-bold dark:text-white">{t("home.welcome")}!</Text>
+                <Text className="text-xl dark:text-white">{t("home.find")}:</Text>
                 {sheeps ?
                     <FlatList className="w-[90%]" data={sheeps.items} keyExtractor={(item) => item.id}
                               renderItem={({item}) =>
                                   <Pressable
-                                      className="w-[100%] flex-row justify-between bg-blue-400 my-2 py-3 px-5 rounded-3xl"
+                                      className="w-[100%] flex-row justify-between bg-blue-400 dark:bg-blue-800 my-2 py-3 px-5 rounded-3xl"
                                       onPress={() => navigation.navigate("MapStack", {
                                           screen: "Map", params: {
                                               location: item.coords,

@@ -1,12 +1,10 @@
 import "./i18n"
 import "./global.css"
-import {NavigationContainer} from "@react-navigation/native";
-import Tabs from "./app/components/tab-nav";
 import {ApiProvider} from "./app/context/api-context";
 import {SheepProvider} from "./app/context/sheep-context";
 import {LocationProvider} from "./app/context/location-context";
 import {SettingsProvider} from "./app/context/settings-context";
-import {View} from "react-native";
+import AppContent from "./app-content";
 
 export default function App() {
     return (
@@ -14,9 +12,7 @@ export default function App() {
             <LocationProvider>
                 <SheepProvider>
                     <ApiProvider>
-                        <NavigationContainer>
-                            <Tabs/>
-                        </NavigationContainer>
+                        <AppContent/>
                     </ApiProvider>
                 </SheepProvider>
             </LocationProvider>

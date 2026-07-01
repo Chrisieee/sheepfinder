@@ -5,9 +5,13 @@ import {useLocation} from "../context/location-context";
 import {useCallback, useEffect, useState} from "react";
 import {useFocusEffect} from "@react-navigation/native";
 import MapMarker from "../components/marker";
+import darkMapStyle from "../styles/darkMapStyle.json";
+import lightMapStyle from "../styles/lightMapStyle.json";
+import {useSettings} from "../context/settings-context";
 
 function Map({route}) {
     const {sheeps} = useSheep()
+    const {settings} = useSettings()
     const {userLocation, startLocationUpdates} = useLocation()
     const [startLocation, setStartLocation] = useState(null)
 
@@ -28,6 +32,7 @@ function Map({route}) {
     return (
         <View style={{flex: 1}}>
             <MapView style={{flex: 1}}
+                     customMapStyle={settings.darkmode ? darkMapStyle : lightMapStyle}
                      region={{
                          latitude: startLocation?.latitude ?? 51.80662957952351,
                          longitude: startLocation?.longitude ?? 4.66896958362819,

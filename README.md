@@ -8,20 +8,20 @@ Deze app is gemaakt in React Native.
 - Map
 - Lijst van schapen
 - Details weergaven
+- Dark mode
+- AsyncStorage voor likes/finds/miss notes
+- Styling
+
+- Edit en delete (notes) + share
+- Meertaligheid
+- Beveiliging
 
 ## To do:
 
-- AsyncStorage voor likes/finds/miss notes
-- Dark mode
-- Styling
-
 ### Wil ik:
 
-- Beveiliging
-- Edit en delete (notes) + share
 - Foto's opslaan
 - Onderbreken internet
-- Meertaligheid
 
 ### Eventueel:
 

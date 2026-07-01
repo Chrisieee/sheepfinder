@@ -1,0 +1,35 @@
+{
+  "home": {
+    "welcome": "Sheepfinderへようこそ",
+    "find": "羊をタップして探しましょう",
+    "title": "ホーム"
+  },
+  "map": {
+    "title": "マップ"
+  },
+  "details": {
+    "title": "詳細",
+    "kind": "羊の種類",
+    "color": "色:",
+    "found": "見つけた？",
+    "unfound": "まだ見つけていない？",
+    "note": "メモ",
+    "nonote": "メモはありません",
+    "placeholder": "メモを入力してください",
+    "button": "保存"
+  },
+  "settings": {
+    "title": "設定",
+    "darkmode": "ダークモード",
+    "language": {
+      "title": "言語",
+      "dutch": "オランダ語",
+      "english": "英語",
+      "japanese": "日本語"
+    }
+  },
+  "share": {
+    "text1": "私は",
+    "text2": "を見つけました！！"
+  }
+}

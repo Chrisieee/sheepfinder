@@ -1,12 +1,22 @@
 {
   "home": {
     "welcome": "Welcome to Sheepfinder",
-    "find": "Click a sheep to find it"
+    "find": "Click a sheep to find it",
+    "title": "Home"
+  },
+  "map": {
+    "title": "Map"
   },
   "details": {
+    "title": "Details",
     "kind": "Kind of sheep",
     "color": "Color:",
-    "found": "Found?"
+    "found": "Found?",
+    "unfound": "Not found?",
+    "note": "Note",
+    "nonote": "There is no note",
+    "placeholder": "Fill in a note",
+    "button": "Save"
   },
   "settings": {
     "title": "Settings",
@@ -14,7 +24,12 @@
     "language": {
       "title": "Language",
       "dutch": "Dutch",
-      "english": "English"
+      "english": "English",
+      "japanese": "Japanese"
     }
+  },
+  "share": {
+    "text1": "I found the",
+    "text2": "sheep!!"
   }
 }

@@ -11,7 +11,8 @@ function Dropdowncomp() {
     const [value, setValue] = useState(settings.language);
     const data = [
         {label: t("settings.language.dutch"), value: "nl"},
-        {label: t("settings.language.english"), value: "en"}
+        {label: t("settings.language.english"), value: "en"},
+        {label: t("settings.language.japanese"), value: "jp"}
     ]
 
     return (

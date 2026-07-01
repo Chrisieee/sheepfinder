@@ -3,9 +3,11 @@ import Map from "../screens/map";
 import {createStackNavigator} from "@react-navigation/stack";
 import Title from "./title";
 import Details from "../screens/details";
+import {useTranslation} from "react-i18next";
 
 function MapStack() {
     const Stack = createStackNavigator();
+    const {t} = useTranslation()
 
     return (
         <Stack.Navigator id="1">
@@ -13,7 +15,7 @@ function MapStack() {
                 name="Map"
                 component={Map}
                 options={{
-                    headerTitle: () => <Title title={"Map"}/>,
+                    headerTitle: () => <Title title={t("map.title")}/>,
                     headerTitleAlign: 'center',
                 }}
             />
@@ -21,7 +23,7 @@ function MapStack() {
                 name="Details"
                 component={Details}
                 options={{
-                    headerTitle: () => <Title title={"Details"}/>,
+                    headerTitle: () => <Title title={t("details.title")}/>,
                     headerTitleAlign: 'center',
                 }}
             />

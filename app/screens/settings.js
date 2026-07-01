@@ -10,9 +10,9 @@ function Settings() {
 
     return (
         <SafeAreaProvider>
-            <SafeAreaView className="items-center pt-5 flex-1">
+            <SafeAreaView className="items-center pt-5 flex-1 dark:bg-gray-600">
                 <View className="flex flex-row items-center w-full justify-center gap-5">
-                    <Text className="text-2xl font-semibold">{t("settings.darkmode")}:</Text>
+                    <Text className="text-2xl font-semibold dark:text-white">{t("settings.darkmode")}:</Text>
                     <Switch
                         value={settings.darkmode}
                         onValueChange={() => {
@@ -23,7 +23,7 @@ function Settings() {
                     />
                 </View>
                 <View className="flex items-center w-full justify-center gap-5">
-                    <Text className="text-2xl font-semibold">{t("settings.language.title")}:</Text>
+                    <Text className="text-2xl font-semibold dark:text-white">{t("settings.language.title")}:</Text>
                     <Dropdowncomp/>
                 </View>
             </SafeAreaView>
