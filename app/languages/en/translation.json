@@ -16,7 +16,8 @@
     "note": "Note",
     "nonote": "There is no note",
     "placeholder": "Fill in a note",
-    "button": "Save"
+    "button": "Save",
+    "photo": "Make picture"
   },
   "settings": {
     "title": "Settings",

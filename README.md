@@ -15,12 +15,12 @@ Deze app is gemaakt in React Native.
 - Edit en delete (notes) + share
 - Meertaligheid
 - Beveiliging
+- Foto's opslaan
 
 ## To do:
 
 ### Wil ik:
 
-- Foto's opslaan
 - Onderbreken internet
 
 ### Eventueel:

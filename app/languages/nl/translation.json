@@ -16,7 +16,8 @@
     "note": "Notitie",
     "nonote": "Er is geen notitie",
     "placeholder": "Voer een notitie in",
-    "button": "Opslaan"
+    "button": "Opslaan",
+    "photo": "Foto maken"
   },
   "settings": {
     "title": "Instellingen",

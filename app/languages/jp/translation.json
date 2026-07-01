@@ -16,7 +16,8 @@
     "note": "メモ",
     "nonote": "メモはありません",
     "placeholder": "メモを入力してください",
-    "button": "保存"
+    "button": "保存",
+    "photo": "写真を撮る"
   },
   "settings": {
     "title": "設定",

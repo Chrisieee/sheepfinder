@@ -9,6 +9,7 @@ export function SheepProvider({children}) {
     const [sheeps, setSheeps] = useState(null)
     const [finds, setFinds] = useState([])
     const [notes, setNotes] = useState([])
+    const [photos, setPhotos] = useState([])
     const {t} = useTranslation()
 
     // useEffect(() => {
@@ -71,6 +72,29 @@ export function SheepProvider({children}) {
         setNotes(notes.filter(n => n.id !== id))
     }
 
+    const getPhotos = async () => {
+        try {
+            const value = await AsyncStorage.getItem('photos')
+            const jsonValue = value != null ? await JSON.parse(value) : []
+            setPhotos(jsonValue)
+        } catch (e) {
+            console.log(e.message)
+        }
+    }
+
+    const savePhotos = async () => {
+        try {
+            const jsonValue = JSON.stringify(photos)
+            await AsyncStorage.setItem('photos', jsonValue)
+        } catch (e) {
+            console.log(e.message)
+        }
+    }
+
+    const changePhotos = async (id, uri) => {
+        setPhotos([...photos, {id: id, uri: uri}])
+    }
+
     const shareSheep = async (sheep, note) => {
         const n = note.note ? `${t("details.note")}: ${note.note}` : null
         try {
@@ -84,9 +108,10 @@ export function SheepProvider({children}) {
     };
 
     useEffect(() => {
+        getFinds()
         getNotes()
-        getFinds();
-    }, []);
+        getPhotos()
+    }, [])
 
     useEffect(() => {
         saveFinds()
@@ -96,12 +121,17 @@ export function SheepProvider({children}) {
         saveNotes()
     }, [notes])
 
+    useEffect(() => {
+        savePhotos()
+    }, [photos])
+
     return (
         <SheepContext.Provider
             value={{
                 sheeps, setSheeps,
                 finds, findSheep,
                 notes, changeNotes, deleteNoteFromStorage,
+                photos, changePhotos,
                 shareSheep
             }}>
             {children}
